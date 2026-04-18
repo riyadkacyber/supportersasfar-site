@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AS FAR Rabat — Fans Officiels 2025/2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Cairo:wght@400;600;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --or: #C9A84C;
+    --or-light: #F0D080;
+    --or-dark: #8B6914;
+    --rouge: #C8102E;
+    --vert: #1A6B3C;
+    --noir: #0A0A0A;
+    --noir2: #111111;
+    --gris: #1C1C1C;
+    --gris2: #252525;
+    --texte: #E8E0CC;
+    --texte2: #A09070;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--noir);
+    color: var(--texte);
+    font-family: 'Cairo', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ===== TEXTURE OVERLAY ===== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px),
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(10,10,10,0.95);
+    border-bottom: 2px solid var(--or);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-emblem {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--or-dark), var(--or), var(--or-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--noir);
+    border: 2px solid var(--or-light);
+    flex-shrink: 0;
+  }
+
+  .nav-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--or);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-title span {
+    display: block;
+    font-size: 10px;
+    color: var(--texte2);
+    letter-spacing: 4px;
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--texte2);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: color 0.2s;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-links a:hover {
+    color: var(--or);
+    border-bottom-color: var(--or);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--noir);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,16,46,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(26,107,60,0.06) 0%, transparent 60%);
+  }
+
+  .hero-stripes {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    display: flex;
+  }
+
+  .hero-stripes div {
+    flex: 1;
+  }
+
+  .hero-stripes .s1 { background: var(--rouge); }
+  .hero-stripes .s2 { background: var(--or); }
+  .hero-stripes .s3 { background: var(--vert); }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .hero-saison {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: var(--or);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-badge {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 2rem;
+    background: linear-gradient(145deg, var(--or-dark) 0%, var(--or) 40%, var(--or-light) 60%, var(--or) 80%, var(--or-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--or-light);
+    box-shadow: 0 0 60px rgba(201,168,76,0.3), inset 0 0 30px rgba(0,0,0,0.3);
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--noir);
+  }
+
+  .hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 7rem);
+    color: white;
+    line-height: 0.9;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-title .highlight {
+    color: var(--or);
+    display: block;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+  }
+
+  .hero-subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    letter-spacing: 8px;
+    color: var(--texte2);
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1s forwards;
+  }
+
+  .btn-or {
+    background: linear-gradient(135deg, var(--or-dark), var(--or));
+    color: var(--noir);
+    border: none;
+    padding: 14px 32px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+    transition: all 0.2s;
+  }
+
+  .btn-or:hover {
+    background: linear-gradient(135deg, var(--or), var(--or-light));
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--or);
+    border: 1px solid var(--or);
+    padding: 13px 32px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    background: rgba(201,168,76,0.1);
+    transform: translateY(-2px);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.5s forwards;
+  }
+
+  .scroll-hint span {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--texte2);
+    text-transform: uppercase;
+  }
+
+  .scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid var(--or);
+    border-bottom: 2px solid var(--or);
+    transform: rotate(45deg);
+    animation: bounce 1.5s infinite;
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 6rem 2rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: var(--or);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    text-transform: uppercase;
+    color: white;
+    line-height: 1;
+  }
+
+  .section-title em {
+    color: var(--or);
+    font-style: normal;
+  }
+
+  .section-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rouge), var(--or), var(--vert));
+    margin: 1.5rem auto 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ===== STATS BAR ===== */
+  .stats-bar {
+    background: var(--gris);
+    border-top: 3px solid var(--or);
+    border-bottom: 3px solid var(--or);
+    padding: 2rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-right: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--or);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--texte2);
+    text-transform: uppercase;
+    margin-top: 6px;
+    display: block;
+  }
+
+  /* ===== ACTUALITÉS ===== */
+  #actualites { background: var(--noir2); }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2px;
+    background: var(--or-dark);
+  }
+
+  .news-card {
+    background: var(--gris);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .news-card:hover { background: var(--gris2); }
+
+  .news-img {
+    height: 240px;
+    background: var(--gris2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    border-bottom: 3px solid var(--or);
+    position: relative;
+  }
+
+  .news-card.featured .news-img { height: 340px; }
+
+  .news-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--rouge);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    font-weight: 700;
+  }
+
+  .news-body {
+    padding: 1.5rem;
+  }
+
+  .news-date {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--or);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .news-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+  }
+
+  .news-card.featured .news-title { font-size: 1.5rem; }
+
+  .news-excerpt {
+    font-size: 13px;
+    color: var(--texte2);
+    line-height: 1.6;
+    display: none;
+  }
+
+  .news-card.featured .news-excerpt { display: block; }
+
+  .news-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--or);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .news-link:hover { border-bottom-color: var(--or); }
+
+  /* ===== JOUEURS ===== */
+  #joueurs { background: var(--noir); }
+
+  .players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 3px;
+    background: rgba(201,168,76,0.1);
+  }
+
+  .player-card {
+    background: var(--gris);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .player-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rouge), var(--or), var(--vert));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .player-card:hover::before { transform: scaleX(1); }
+  .player-card:hover { background: var(--gris2); border-bottom-color: var(--or); }
+
+  .player-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(201,168,76,0.15);
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    line-height: 1;
+  }
+
+  .player-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--vert), var(--or-dark));
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    border: 2px solid var(--or);
+  }
+
+  .player-pos {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--or);
+    text-transform: uppercase;
+    background: rgba(201,168,76,0.1);
+    padding: 3px 10px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  .player-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .player-nat {
+    font-size: 12px;
+    color: var(--texte2);
+    margin-top: 4px;
+  }
+
+  /* ===== PALMARÈS ===== */
+  #palmares { background: var(--gris); }
+
+  .trophies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px;
+    background: rgba(201,168,76,0.1);
+  }
+
+  .trophy-card {
+    background: var(--noir2);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: background 0.2s;
+  }
+
+  .trophy-card:hover { background: var(--noir); }
+
+  .trophy-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .trophy-count {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--or);
+    line-height: 1;
+    display: block;
+  }
+
+  .trophy-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--texte2);
+    text-transform: uppercase;
+    margin-top: 6px;
+    display: block;
+  }
+
+  .trophy-years {
+    font-size: 12px;
+    color: rgba(201,168,76,0.5);
+    margin-top: 8px;
+  }
+
+  /* ===== CLASSEMENT ===== */
+  #classement { background: var(--noir2); }
+
+  .table-wrapper {
+    overflow-x: auto;
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  table thead tr {
+    background: linear-gradient(135deg, var(--or-dark), var(--or));
+    color: var(--noir);
+  }
+
+  table th {
+    padding: 1rem 1.5rem;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  table td {
+    padding: 1rem 1.5rem;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    color: var(--texte);
+  }
+
+  table tbody tr {
+    background: var(--gris);
+    transition: background 0.2s;
+  }
+
+  table tbody tr:hover { background: var(--gris2); }
+
+  .row-assfar {
+    background: rgba(201,168,76,0.12) !important;
+    border-left: 3px solid var(--or) !important;
+  }
+
+  .row-assfar td { color: var(--or-light) !important; font-weight: 700 !important; }
+
+  .rank-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--texte2);
+  }
+
+  .rank-1 { color: var(--or) !important; }
+  .rank-2 { color: #C0C0C0 !important; }
+  .rank-3 { color: #CD7F32 !important; }
+
+  .form-dots {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .dot.v { background: var(--vert); }
+  .dot.n { background: #555; }
+  .dot.d { background: var(--rouge); }
+
+  /* ===== GALERIE ===== */
+  #galerie { background: var(--noir); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+  }
+
+  .gallery-item {
+    height: 220px;
+    background: var(--gris);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery-item:nth-child(1) { grid-column: span 2; height: 300px; }
+  .gallery-item:nth-child(6) { grid-column: span 2; height: 300px; }
+
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .gallery-item:hover::after { opacity: 1; }
+  .gallery-item:hover { filter: brightness(1.15); }
+
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: white;
+    text-transform: uppercase;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    transform: translateY(10px);
+    transition: all 0.3s;
+  }
+
+  .gallery-item:hover .gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--noir);
+    border-top: 2px solid var(--or);
+    padding: 4rem 2rem 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .footer-brand .nav-title {
+    font-size: 22px;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .footer-desc {
+    font-size: 14px;
+    color: var(--texte2);
+    line-height: 1.8;
+    margin-top: 0.8rem;
+  }
+
+  .footer-col h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: var(--or);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-col ul li a {
+    text-decoration: none;
+    color: var(--texte2);
+    font-size: 14px;
+    transition: color 0.2s;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+
+  .footer-col ul li a:hover { color: var(--or); }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p {
+    font-size: 13px;
+    color: var(--texte2);
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  .flag-bar {
+    display: flex;
+    gap: 0;
+    height: 4px;
+    width: 80px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .flag-bar div { flex: 1; }
+  .flag-bar .f1 { background: var(--rouge); }
+  .flag-bar .f2 { background: var(--vert); }
+  .flag-bar .f3 { background: var(--or); }
+
+  /* ===== SOCIAL ===== */
+  .social-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 1.5rem;
+  }
+
+  .social-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: var(--texte2);
+    clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  }
+
+  .social-btn:hover {
+    background: var(--or);
+    color: var(--noir);
+    border-color: var(--or);
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(6px); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(6) {
+      grid-column: span 1;
+      height: 180px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  /* ===== MATCH PROCHAINS ===== */
+  #matches { background: var(--gris); }
+
+  .matches-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .match-row {
+    background: var(--noir2);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+
+  .match-row:hover { background: var(--noir); }
+
+  .match-competition {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--or);
+    text-transform: uppercase;
+    min-width: 140px;
+  }
+
+  .match-teams {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .match-team {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    text-align: right;
+    min-width: 130px;
+  }
+
+  .match-team.right { text-align: left; }
+
+  .match-team.assfar { color: var(--or); }
+
+  .match-vs {
+    background: var(--rouge);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 6px 14px;
+    letter-spacing: 1px;
+    clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+    white-space: nowrap;
+  }
+
+  .match-vs.result {
+    background: var(--vert);
+    font-size: 18px;
+  }
+
+  .match-date {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    color: var(--texte2);
+    text-align: right;
+    min-width: 120px;
+  }
+
+  .match-date strong {
+    display: block;
+    color: var(--texte);
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-emblem">AS<br>FAR</div>
+    <div class="nav-title">
+      AS FAR Rabat
+      <span>Fans Officiels</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#actualites">Actualités</a></li>
+    <li><a href="#joueurs">Joueurs</a></li>
+    <li><a href="#matches">Matchs</a></li>
+    <li><a href="#classement">Classement</a></li>
+    <li><a href="#palmares">Palmarès</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-saison">⭐ Saison 2025 / 2026 ⭐</p>
+    <div class="hero-badge">⚔️</div>
+    <h1 class="hero-title">
+      Association Sportive
+      <em class="highlight">AS FAR</em>
+      Rabat
+    </h1>
+    <p class="hero-subtitle">Forces Armées Royales &nbsp;·&nbsp; Allez les Militaires</p>
+    <div class="hero-cta">
+      <a href="#actualites" class="btn-or">Dernières News</a>
+      <a href="#joueurs" class="btn-outline">L'Effectif</a>
+    </div>
+  </div>
+  <div class="hero-stripes">
+    <div class="s1"></div>
+    <div class="s2"></div>
+    <div class="s3"></div>
+  </div>
+  <div class="scroll-hint">
+    <span>Défiler</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-num">13</span>
+      <span class="stat-label">Titres Botola</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">8</span>
+      <span class="stat-label">Coupes du Trône</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1958</span>
+      <span class="stat-label">Année de création</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">35K</span>
+      <span class="stat-label">Fans passionnés</span>
+    </div>
+  </div>
+</div>
+
+<!-- ACTUALITÉS -->
+<section id="actualites">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Le Club en Direct</span>
+      <h2 class="section-title">Dernières <em>Actualités</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="news-grid">
+      <div class="news-card featured">
+        <div class="news-img" style="background: linear-gradient(135deg, #1A3020, #0A1A10); font-size: 6rem;">🏆</div>
+        <span class="news-tag">À la Une</span>
+        <div class="news-body">
+          <p class="news-date">Avril 2025</p>
+          <h3 class="news-title">L'AS FAR entame la saison 2025/2026 avec ambition et détermination</h3>
+          <p class="news-excerpt">Les militaires se préparent intensément pour une nouvelle campagne en Botola Pro D1. L'effectif est renforcé et l'objectif est clair : ramener le titre à Rabat. Le staff technique affiche une confiance totale dans le groupe.</p>
+          <a href="#" class="news-link">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img" style="background: linear-gradient(135deg, #2A1010, #1A0A0A); font-size: 3rem;">⚽</div>
+        <span class="news-tag">Transfert</span>
+        <div class="news-body">
+          <p class="news-date">Mars 2025</p>
+          <h3 class="news-title">Renforts de taille pour la prochaine saison</h3>
+          <a href="#" class="news-link">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img" style="background: linear-gradient(135deg, #1A1A00, #0A0A10); font-size: 3rem;">👊</div>
+        <span class="news-tag">Entraînement</span>
+        <div class="news-body">
+          <p class="news-date">Avril 2025</p>
+          <h3 class="news-title">Stage de préparation intense — Les FAR affûtent leurs armes</h3>
+          <a href="#" class="news-link">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img" style="background: linear-gradient(135deg, #102010, #0A1A0A); font-size: 3rem;">🇲🇦</div>
+        <span class="news-tag">Equipe Nationale</span>
+        <div class="news-body">
+          <p class="news-date">Avril 2025</p>
+          <h3 class="news-title">3 joueurs de l'AS FAR convoqués en équipe nationale</h3>
+          <a href="#" class="news-link">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img" style="background: linear-gradient(135deg, #1A0A20, #0A0A1A); font-size: 3rem;">🎖️</div>
+        <span class="news-tag">Institution</span>
+        <div class="news-body">
+          <p class="news-date">Février 2025</p>
+          <h3 class="news-title">L'AS FAR fête ses 67 ans d'histoire militaire et sportive</h3>
+          <a href="#" class="news-link">Lire la suite →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOUEURS -->
+<section id="joueurs">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Saison 2025/2026</span>
+      <h2 class="section-title">L'<em>Effectif</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="players-grid">
+      <!-- Gardiens -->
+      <div class="player-card">
+        <div class="player-num">1</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #C9A84C, #8B6914);">MA</div>
+        <span class="player-pos">Gardien</span>
+        <p class="player-name">M. Aqallal</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+      <div class="player-card">
+        <div class="player-num">16</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #C9A84C, #8B6914);">KA</div>
+        <span class="player-pos">Gardien</span>
+        <p class="player-name">K. Aboutaib</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+      <!-- Défenseurs -->
+      <div class="player-card">
+        <div class="player-num">2</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #1A6B3C, #0E3D22);">MO</div>
+        <span class="player-pos">Défenseur</span>
+        <p class="player-name">M. Obbadi</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+      <div class="player-card">
+        <div class="player-num">5</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #1A6B3C, #0E3D22);">SB</div>
+        <span class="player-pos">Défenseur</span>
+        <p class="player-name">S. Benkhida</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+      <div class="player-card">
+        <div class="player-num">4</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #1A6B3C, #0E3D22);">AA</div>
+        <span class="player-pos">Défenseur</span>
+        <p class="player-name">A. Aarab</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+      <div class="player-card">
+        <div class="player-num">3</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #1A6B3C, #0E3D22);">HB</div>
+        <span class="player-pos">Défenseur</span>
+        <p class="player-name">H. Boutahar</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+      <!-- Milieux -->
+      <div class="player-card">
+        <div class="player-num">6</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #C8102E, #7A0A1C);">YA</div>
+        <span class="player-pos">Milieu</span>
+        <p class="player-name">Y. Aalla</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+      <div class="player-card">
+        <div class="player-num">8</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #C8102E, #7A0A1C);">MK</div>
+        <span class="player-pos">Milieu</span>
+        <p class="player-name">M. Konate</p>
+        <p class="player-nat">🇬🇳 Guinée</p>
+      </div>
+      <div class="player-card">
+        <div class="player-num">10</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #C9A84C, #8B6914);">OC</div>
+        <span class="player-pos">Milieu Off.</span>
+        <p class="player-name">O. Choumri</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+      <div class="player-card">
+        <div class="player-num">7</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #C8102E, #7A0A1C);">BT</div>
+        <span class="player-pos">Milieu</span>
+        <p class="player-name">B. Tagnaouti</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+      <!-- Attaquants -->
+      <div class="player-card">
+        <div class="player-num">9</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #C8102E, #8B4014);">HA</div>
+        <span class="player-pos">Attaquant</span>
+        <p class="player-name">H. Ahaddi</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+      <div class="player-card">
+        <div class="player-num">11</div>
+        <div class="player-avatar" style="background: linear-gradient(135deg, #C8102E, #8B4014);">AB</div>
+        <span class="player-pos">Ailier</span>
+        <p class="player-name">A. Baadi</p>
+        <p class="player-nat">🇲🇦 Maroc</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATCHS -->
+<section id="matches">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Botola Pro D1</span>
+      <h2 class="section-title">Prochains <em>Matchs</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="matches-list">
+      <div class="match-row">
+        <span class="match-competition">🏆 Botola Pro D1</span>
+        <div class="match-teams">
+          <span class="match-team assfar">AS FAR</span>
+          <span class="match-vs">VS</span>
+          <span class="match-team right">WAC</span>
+        </div>
+        <div class="match-date">
+          <strong>26 Avril 2025</strong>
+          15:00 · Stade Prince Moulay Abdellah
+        </div>
+      </div>
+      <div class="match-row">
+        <span class="match-competition">🏆 Botola Pro D1</span>
+        <div class="match-teams">
+          <span class="match-team">Raja CA</span>
+          <span class="match-vs">VS</span>
+          <span class="match-team assfar right">AS FAR</span>
+        </div>
+        <div class="match-date">
+          <strong>3 Mai 2025</strong>
+          17:00 · Stade Mohamed V
+        </div>
+      </div>
+      <div class="match-row">
+        <span class="match-competition">🏆 Botola Pro D1</span>
+        <div class="match-teams">
+          <span class="match-team assfar">AS FAR</span>
+          <span class="match-vs">VS</span>
+          <span class="match-team right">MAS Fès</span>
+        </div>
+        <div class="match-date">
+          <strong>10 Mai 2025</strong>
+          19:00 · Stade Prince Moulay Abdellah
+        </div>
+      </div>
+      <div class="match-row" style="border-left: 3px solid var(--vert); opacity: 0.85;">
+        <span class="match-competition">✅ Résultat</span>
+        <div class="match-teams">
+          <span class="match-team assfar">AS FAR</span>
+          <span class="match-vs result">2 – 0</span>
+          <span class="match-team right">DHJ</span>
+        </div>
+        <div class="match-date">
+          <strong>19 Avril 2025</strong>
+          VICTOIRE 🏆
+        </div>
+      </div>
+      <div class="match-row" style="border-left: 3px solid var(--vert); opacity: 0.85;">
+        <span class="match-competition">✅ Résultat</span>
+        <div class="match-teams">
+          <span class="match-team">IRT</span>
+          <span class="match-vs result">0 – 1</span>
+          <span class="match-team assfar right">AS FAR</span>
+        </div>
+        <div class="match-date">
+          <strong>12 Avril 2025</strong>
+          VICTOIRE 🏆
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSEMENT -->
+<section id="classement">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Botola Pro D1 — 2024/2025</span>
+      <h2 class="section-title"><em>Classement</em> Général</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Club</th>
+            <th>J</th>
+            <th>V</th>
+            <th>N</th>
+            <th>D</th>
+            <th>Buts</th>
+            <th>Pts</th>
+            <th>Forme</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rank-num rank-1">1</span></td>
+            <td>WAC</td>
+            <td>22</td><td>14</td><td>5</td><td>3</td><td>38-18</td>
+            <td><strong style="color:var(--or)">47</strong></td>
+            <td><div class="form-dots"><span class="dot v">V</span><span class="dot v">V</span><span class="dot n">N</span><span class="dot v">V</span><span class="dot v">V</span></div></td>
+          </tr>
+          <tr class="row-assfar">
+            <td><span class="rank-num rank-2">2</span></td>
+            <td>⭐ AS FAR RABAT ⭐</td>
+            <td>22</td><td>13</td><td>5</td><td>4</td><td>35-17</td>
+            <td><strong>44</strong></td>
+            <td><div class="form-dots"><span class="dot v">V</span><span class="dot v">V</span><span class="dot v">V</span><span class="dot d">D</span><span class="dot v">V</span></div></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num rank-3">3</span></td>
+            <td>Raja CA</td>
+            <td>22</td><td>12</td><td>4</td><td>6</td><td>31-22</td>
+            <td><strong style="color:var(--or)">40</strong></td>
+            <td><div class="form-dots"><span class="dot v">V</span><span class="dot n">N</span><span class="dot v">V</span><span class="dot v">V</span><span class="dot d">D</span></div></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">4</span></td>
+            <td>Renaissance Berkane</td>
+            <td>22</td><td>11</td><td>5</td><td>6</td><td>28-21</td>
+            <td><strong style="color:var(--or)">38</strong></td>
+            <td><div class="form-dots"><span class="dot n">N</span><span class="dot v">V</span><span class="dot v">V</span><span class="dot d">D</span><span class="dot v">V</span></div></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">5</span></td>
+            <td>MAS Fès</td>
+            <td>22</td><td>10</td><td>4</td><td>8</td><td>27-25</td>
+            <td><strong style="color:var(--or)">34</strong></td>
+            <td><div class="form-dots"><span class="dot v">V</span><span class="dot d">D</span><span class="dot n">N</span><span class="dot v">V</span><span class="dot d">D</span></div></td>
+          </tr>
+          <tr>
+            <td><span class="rank-num">6</span></td>
+            <td>Difaa Hassani El Jadidi</td>
+            <td>22</td><td>9</td><td>4</td><td>9</td><td>24-27</td>
+            <td><strong style="color:var(--or)">31</strong></td>
+            <td><div class="form-dots"><span class="dot d">D</span><span class="dot v">V</span><span class="dot d">D</span><span class="dot n">N</span><span class="dot v">V</span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:right; margin-top:1rem; font-size:12px; color:var(--texte2); font-family:'Rajdhani',sans-serif; letter-spacing:1px;">* Classement indicatif — mis à jour régulièrement</p>
+  </div>
+</section>
+
+<!-- PALMARÈS -->
+<section id="palmares">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Depuis 1958</span>
+      <h2 class="section-title">Notre <em>Palmarès</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="trophies-grid">
+      <div class="trophy-card">
+        <span class="trophy-icon">🏆</span>
+        <span class="trophy-count">13</span>
+        <span class="trophy-name">Botola Pro D1</span>
+        <p class="trophy-years">1961, 1964, 1967, 1968, 1973, 1976, 1978, 1980, 1989, 1992, 1996, 2005, 2014</p>
+      </div>
+      <div class="trophy-card">
+        <span class="trophy-icon">🥇</span>
+        <span class="trophy-count">8</span>
+        <span class="trophy-name">Coupe du Trône</span>
+        <p class="trophy-years">1968, 1973, 1974, 1976, 1977, 1983, 2001, 2015</p>
+      </div>
+      <div class="trophy-card">
+        <span class="trophy-icon">⭐</span>
+        <span class="trophy-count">4</span>
+        <span class="trophy-name">Supercoupe du Maroc</span>
+        <p class="trophy-years">2005, 2014, 2015, 2016</p>
+      </div>
+      <div class="trophy-card">
+        <span class="trophy-icon">🌍</span>
+        <span class="trophy-count">1</span>
+        <span class="trophy-name">Coupe des Clubs Champions Arabes</span>
+        <p class="trophy-years">1985</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Moments Forts</span>
+      <h2 class="section-title">Notre <em>Galerie</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" style="background: linear-gradient(135deg, #1A3020, #0A1210);">
+        🏟️
+        <span class="gallery-caption">Stade Prince Moulay Abdellah — Rabat</span>
+      </div>
+      <div class="gallery-item" style="background: linear-gradient(135deg, #2A1510, #180A05);">
+        🥅
+        <span class="gallery-caption">But décisif — Botola 2024</span>
+      </div>
+      <div class="gallery-item" style="background: linear-gradient(135deg, #1A1020, #0A0810);">
+        🎖️
+        <span class="gallery-caption">Esprit militaire — Toujours en avant</span>
+      </div>
+      <div class="gallery-item" style="background: linear-gradient(135deg, #201510, #100A05);">
+        🏆
+        <span class="gallery-caption">Soulèvement du trophée</span>
+      </div>
+      <div class="gallery-item" style="background: linear-gradient(135deg, #102020, #051010);">
+        👥
+        <span class="gallery-caption">L'Équipe — Saison 2024/2025</span>
+      </div>
+      <div class="gallery-item" style="background: linear-gradient(135deg, #1A0A10, #0A0508);">
+        🇲🇦
+        <span class="gallery-caption">Supporters — La 12ème Homme</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-title" style="font-size:22px; display:block; margin-bottom:8px;">AS FAR RABAT</div>
+      <div class="flag-bar" style="margin-bottom:1rem;">
+        <div class="f1"></div>
+        <div class="f2"></div>
+        <div class="f3"></div>
+      </div>
+      <p class="footer-desc">Site de fans non officiel dédié à l'Association Sportive des Forces Armées Royales de Rabat. Passion, fierté et dévouement pour notre club depuis 1958.</p>
+      <div class="social-row">
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#actualites">Actualités</a></li>
+        <li><a href="#joueurs">Joueurs</a></li>
+        <li><a href="#matches">Matchs</a></li>
+        <li><a href="#classement">Classement</a></li>
+        <li><a href="#palmares">Palmarès</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Le Club</h4>
+      <ul>
+        <li><a href="#">Histoire</a></li>
+        <li><a href="#">Stade</a></li>
+        <li><a href="#">Académie</a></li>
+        <li><a href="#">Staff Technique</a></li>
+        <li><a href="#">Partenaires</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">Nous Contacter</a></li>
+        <li><a href="#">Signaler un Erreur</a></li>
+        <li><a href="#">Contribuer</a></li>
+        <li><a href="#">Mentions Légales</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 AS FAR Rabat Fans — Site non officiel — Fait avec ❤️ au Maroc 🇲🇦</p>
+    <p style="color: var(--or);">⭐ ALLEZ LES MILITAIRES ⭐</p>
+    <div class="flag-bar">
+      <div class="f1"></div>
+      <div class="f2"></div>
+      <div class="f3"></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth nav highlight on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 100;
+      if (scrollY >= top) current = section.id;
+    });
+    navLinks.forEach(link => {
+      link.style.color = '';
+      link.style.borderBottomColor = '';
+      if (link.getAttribute('href') === '#' + current) {
+        link.style.color = 'var(--or)';
+        link.style.borderBottomColor = 'var(--or)';
+      }
+    });
+  });
+
+  // Scroll reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.news-card, .player-card, .trophy-card, .match-row, .gallery-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
